@@ -5,7 +5,7 @@ const getRandomColor = () => {
   return color(random(0, 255), random(0, 255), random(0, 255));
 };
 
-const drawSeirpinskiCarpet = (sq, depth) => {
+const drawSierpińskiCarpet = (sq, depth) => {
   if (depth === level) {
     return;
   }
@@ -36,14 +36,14 @@ const drawSeirpinskiCarpet = (sq, depth) => {
     newSquareLength
   );
 
-  drawSeirpinskiCarpet(sq1, depth + 1);
-  drawSeirpinskiCarpet(sq2, depth + 1);
-  drawSeirpinskiCarpet(sq3, depth + 1);
-  drawSeirpinskiCarpet(sq4, depth + 1);
-  drawSeirpinskiCarpet(sq5, depth + 1);
-  drawSeirpinskiCarpet(sq6, depth + 1);
-  drawSeirpinskiCarpet(sq7, depth + 1);
-  drawSeirpinskiCarpet(sq8, depth + 1);
+  drawSierpińskiCarpet(sq1, depth + 1);
+  drawSierpińskiCarpet(sq2, depth + 1);
+  drawSierpińskiCarpet(sq3, depth + 1);
+  drawSierpińskiCarpet(sq4, depth + 1);
+  drawSierpińskiCarpet(sq5, depth + 1);
+  drawSierpińskiCarpet(sq6, depth + 1);
+  drawSierpińskiCarpet(sq7, depth + 1);
+  drawSierpińskiCarpet(sq8, depth + 1);
 };
 
 class Square {
@@ -90,8 +90,8 @@ function setup() {
   carpetCanvas.parent("carpet-canvas");
 
   levelSlider = createSlider(2, 6, 5, 1);
-  bigSquareColorPicker = createColorPicker("#000000");
-  subsequentSquareColorPicker = createColorPicker("#ffffff");
+  bigSquareColorPicker = createColorPicker("#F8A488");
+  subsequentSquareColorPicker = createColorPicker("#FD726C");
   levelSlider.id("levelSliderID");
   levelSlider.parent("levelSlider");
   bigSquareColorPicker.id("bigSquareColorID");
@@ -104,5 +104,5 @@ function draw() {
   let initialSquare = new Square(0, 0, initialSideOfSquare);
   initialSquare.drawInitialSquare();
   level = levelSlider.value();
-  drawSeirpinskiCarpet(initialSquare, 0);
+  drawSierpińskiCarpet(initialSquare, 0);
 }

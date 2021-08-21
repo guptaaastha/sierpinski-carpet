@@ -1,6 +1,20 @@
 * {
   padding: 0;
   margin: 0;
+  color: #45526c;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: 400;
+  padding: 10px 0;
+  text-align: center;
+}
+
+p {
+  max-width: 400px;
+  text-align: justify;
+  padding: 20px 0;
 }
 
 .wrapper {
@@ -9,6 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #f8f5f1;
 }
 
 .inputs {
@@ -16,5 +31,7 @@
   display: flex;
   justify-content: space-between;
   width: 95%;
-  margin: 0.5rem;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 500;
 }
