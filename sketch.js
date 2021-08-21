@@ -1,6 +1,5 @@
-let canvasWidth = 600;
-let canvasHeight = 600;
 let level = 5;
+let initialSideOfSquare;
 
 const getRandomColor = () => {
   return color(random(0, 255), random(0, 255), random(0, 255));
@@ -56,26 +55,41 @@ class Square {
 
   drawSubsequentSquare() {
     noStroke();
-    fill(getRandomColor());
+    fill(255);
     square(this.x, this.y, this.sideLength);
   }
 
   drawInitialSquare() {
     noStroke();
-    fill(getRandomColor());
+    fill(0);
     square(this.x, this.y, this.sideLength);
   }
 }
 
+function windowResized() {
+  if (windowWidth < 400) {
+    resizeCanvas(windowWidth, windowWidth);
+    initialSideOfSquare = windowWidth;
+  } else {
+    resizeCanvas(windowWidth, 400);
+    initialSideOfSquare = 400;
+  }
+}
+
 function setup() {
-  createCanvas(canvasWidth, canvasHeight);
+  if (innerWidth < 400) {
+    createCanvas(innerWidth, innerWidth);
+    initialSideOfSquare = innerWidth;
+  } else {
+    createCanvas(400, 400);
+    initialSideOfSquare = 400;
+  }
+
   noLoop();
 }
 
 function draw() {
-  // background(51);
-  let initialSquare = new Square(0, 0, 500);
-  // initialSquare.draw();
+  let initialSquare = new Square(0, 0, initialSideOfSquare);
   initialSquare.drawInitialSquare();
   drawSeirpinskiCarpet(initialSquare, 0);
 }
