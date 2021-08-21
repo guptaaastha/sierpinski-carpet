@@ -1,10 +1,6 @@
 let level = 5;
 let initialSideOfSquare;
 
-const getRandomColor = () => {
-  return color(random(0, 255), random(0, 255), random(0, 255));
-};
-
 const drawSierpińskiCarpet = (sq, depth) => {
   if (depth === level) {
     return;
