@@ -55,41 +55,54 @@ class Square {
 
   drawSubsequentSquare() {
     noStroke();
-    fill(255);
+    fill(subsequentSquareColorPicker.color());
     square(this.x, this.y, this.sideLength);
   }
 
   drawInitialSquare() {
     noStroke();
-    fill(0);
+    fill(bigSquareColorPicker.color());
     square(this.x, this.y, this.sideLength);
   }
 }
 
 function windowResized() {
   if (windowWidth < 400) {
-    resizeCanvas(windowWidth, windowWidth);
-    initialSideOfSquare = windowWidth;
+    let canvasWidth = windowWidth - 10;
+    resizeCanvas(canvasWidth, canvasWidth);
+    initialSideOfSquare = canvasWidth - 10;
   } else {
-    resizeCanvas(windowWidth, 400);
+    resizeCanvas(400, 400);
     initialSideOfSquare = 400;
   }
 }
 
 function setup() {
+  let carpetCanvas;
   if (innerWidth < 400) {
-    createCanvas(innerWidth, innerWidth);
-    initialSideOfSquare = innerWidth;
+    let canvasWidth = innerWidth - 10;
+    carpetCanvas = createCanvas(canvasWidth, canvasWidth);
+    initialSideOfSquare = canvasWidth;
   } else {
-    createCanvas(400, 400);
+    carpetCanvas = createCanvas(400, 400);
     initialSideOfSquare = 400;
   }
+  carpetCanvas.parent("carpet-canvas");
 
-  noLoop();
+  levelSlider = createSlider(2, 6, 5, 1);
+  bigSquareColorPicker = createColorPicker("#000000");
+  subsequentSquareColorPicker = createColorPicker("#ffffff");
+  levelSlider.id("levelSliderID");
+  levelSlider.parent("levelSlider");
+  bigSquareColorPicker.id("bigSquareColorID");
+  bigSquareColorPicker.parent("bigSquareColor");
+  subsequentSquareColorPicker.id("subsequentSquareColorID");
+  subsequentSquareColorPicker.parent("subsequentSquareColor");
 }
 
 function draw() {
   let initialSquare = new Square(0, 0, initialSideOfSquare);
   initialSquare.drawInitialSquare();
+  level = levelSlider.value();
   drawSeirpinskiCarpet(initialSquare, 0);
 }

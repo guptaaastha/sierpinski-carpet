@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
-    <title>document</title>
+    <title>Sierpiński carpet</title>
   </head>
-  <body>
+  <body class="wrapper">
+    <h1>Sierpiński carpet</h1>
+    <div id="carpet-canvas"></div>
+    <div id="levelSlider" class="inputs">
+      <label for="levelSliderID">Number of levels for the carpet</label>
+    </div>
+    <div id="bigSquareColor" class="inputs">
+      <label for="bigSquareColor">Biggest Square Color</label>
+    </div>
+    <div id="subsequentSquareColor" class="inputs">
+      <label for="subsequentSquareColorID">Subsequent Squares' Color</label>
+    </div>
+    <p>test</p>
     <script src="sketch.js"></script>
   </body>
 </html>
